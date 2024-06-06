@@ -1,7 +1,17 @@
-def has_same_element(first_array = [], second_array = []):
-    for i in first_array:
-        for j in second_array:
-            if i == j:
-                print(i)
+def read_list():
+    return input("Enter the list (seperate with space): ").split()
 
-has_same_element(["Amir", "Ali", "Reza", 45], ["Mohammad", "Amir", 45])
+try:
+    list1 = read_list()
+    list2 = read_list()
+    
+    num_list1 = [int(i) for i in list1]
+    num_list2 = [int(i) for i in list2]
+    
+    result = [a / b for a, b in zip(num_list1, num_list2)]
+    print("Answer: ", result)
+    
+except ValueError:
+    print("ValueError: Please enter valid number")
+except ZeroDivisionError:
+    print("ZeroDivisionError")
